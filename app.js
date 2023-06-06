@@ -66,13 +66,12 @@ console.log(errMsg + " :error message "+ err)
 // **home directory method
 console.log(os.homedir());
 
-//** hostname method  */
+// ** hostname method  */
 console.log(os.hostname());
 
 //********************file system modules***************
 
 const fs = require("fs");
-const path = require ('path')
 const files= fs.readdirSync('./');
 console.log(files);
 
@@ -118,6 +117,7 @@ fs.rmdir((__dirname, "testdir"), (err) => {
   }
   console.log("Directory deleted  successfully!");
 });
+
 
 
 
