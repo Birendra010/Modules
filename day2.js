@@ -25,14 +25,22 @@ emitter.emit('checkpage',200,'ok')
 
 const http = require('http')
 
-http.createServer(function(req,res){
+const server = http.createServer(function(req,res){
     if(req.url==='/'){
-        res.write('first request');
+        res.end('hello from the home sides ');
+    }else if(req.url === '/about'){
+        res.end('hello from the aboutUs sides')
+    }else if(req.url == '/contact'){
+        res.end('hello from the contactUs sides ')
+    }else{
+        res.writeHead(404 , {"Content-type":"text/html"}); //inspact 
+        res.end("<h1>page does not exits</h1>")
+        
     }
 
-    if(req.url==='/api'){
-        res.write('second request')
-    }
-    res.end();
-}).listen('3000');
+  
+})
+server.listen('3000',()=>{
+    console.log('listening to the port no 3000...')
+});
 
